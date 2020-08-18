@@ -1,0 +1,99 @@
+@import "./variables.scss";
+@import "./media.scss";
+
+.text-center {
+    text-align: center !important;
+}
+.text-left {
+    text-align: left !important;
+}
+.text-right {
+    text-align: right !important;
+}
+.text-justify {
+    text-align: justify !important;
+}
+.full-width {
+    width: 100% !important;
+}
+.w-90 {
+    width: 90% !important;
+}
+.w-75 {
+    width: 75% !important;
+}
+.w-50 {
+    width: 50% !important;
+}
+.container {    
+    padding: 1rem 2rem;
+    @include mediaMd {
+        padding: 3rem 5rem;   
+    }
+}
+.no-margin {
+    margin: 0 auto !important;
+}
+.no-padding {
+    padding: 0 !important;
+}
+.float-right {
+    float: right !important;
+}
+.float-left {
+    float: left !important;
+}
+.text-white {
+    color: #fff !important;
+}
+.text-black {
+    color: $black !important;
+}
+.text-yellow {
+    color: $yellow !important;
+}
+.text-bold {
+    font-weight: bold !important;
+}
+.text-danger {
+    color: $danger !important;
+}
+.text-success {
+    color: $success !important;
+}
+.text-regular {
+    color: $darkGrey !important;
+}
+.text-mute {
+    color: $mute !important;
+}
+.icon-mute {
+    color: $mute !important;
+}
+.text-link {
+    color: $link !important
+}
+.text-crossed {
+    text-decoration: line-through !important;
+}
+.bg-white {
+    background-color: $white !important;
+}
+.rounded {
+    border-radius: 50%;
+}
+.shadow {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+.flex {
+    display: flex;
+}
+.flex-img {
+    width: 100% !important;
+    height: auto;
+}
+
+@mixin grid($cells) {
+    display: grid;
+    grid-template-columns: repeat($cells, calc(100% / $cells)) !important;
+}

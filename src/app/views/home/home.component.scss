@@ -1,0 +1,115 @@
+@import "../../../assets/scss/main.scss";
+
+.hero-header {
+    background-color: $yellow;
+    i {
+        font-size: 30px;
+    }
+    h4 {
+        margin-left: 1rem !important;
+        margin-top: 5px !important;
+    }
+    @include mediaMd {
+        h1 {
+            font-size: 3em;
+        }
+    }
+}
+.sign-in {    
+    background-color: transparent;
+    color: $darkGrey;
+    padding: 5px;
+    width: 5rem;
+    border-radius: 20px;
+    border: 3px $darkGrey solid;
+}
+.info-section {
+    background-color: $lightGrey;
+    i {
+        font-size: 30px;
+    }
+    .col-info {
+        margin-left: 3rem;
+        @include mediaMd {
+            margin-left: 5rem !important;
+        }
+        @include mediaLg {
+            margin-left: 9rem !important;
+        }
+    }
+}
+.slogan-section {
+    background-color: $darkGrey;
+    .quotation-mark {
+        font-family: Arial !important;
+        font-size: 80px;
+        height: 60px;
+        @include mediaMd {
+            margin-left: 5rem !important;
+        }
+        @include mediaLg {
+            margin-left: 10rem !important;
+        }
+    }
+}
+.header-shop-title {
+    font-weight: bold;
+    font-size: 2.2em;
+    @include mediaMd {
+        font-size: 3em;      
+    }
+}
+.small-text {
+    font-size: 16px !important;
+    @include mediaMd {
+        font-size: 24px !important;
+    }
+}
+.carousel-item {
+    margin-right: 1rem;
+    i {
+        font-size: 40px;
+    }
+    .img-item {
+        width: 70px;
+        height: 70px;        
+    }
+    .rounded-item {
+        width: 100%;
+        text-align: center;
+        border-radius: 50%;
+        padding: 15px;
+        background-color: $lightGrey;
+        cursor: pointer;
+    }
+    .active {
+        border: 3px $darkGrey solid;
+        height: 70px;
+        padding-top: 12px;
+    }
+}
+.kandy-code {
+    font-size: 20px;
+}
+.kandy-info {
+    display: grid;
+    grid-template-columns: repeat(3, calc(100% / 3)) !important;
+}
+.grid-item {
+    margin: 0 auto !important;
+    i {
+        padding: 40px;
+        font-size: 20px;
+    }
+}
+.post-section {
+    i {
+        font-size: 20px;
+    }
+    @include mediaMd {
+        padding: 0 5rem;
+        .shadow-container {
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+        }
+    }
+}

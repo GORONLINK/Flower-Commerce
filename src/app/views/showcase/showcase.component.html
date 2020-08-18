@@ -1,0 +1,48 @@
+<ons-page>
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <a class="nav-item text-center">
+            <div style="padding: 20px 0px">Timelines</div>
+        </a>
+        <a class="nav-item text-center active">
+            <div style="padding: 20px 0px">Items</div>            
+        </a>
+        <a class="nav-item"></a>
+        
+        <a class="nav-item">
+            <div class="text-center">
+                <img class="profile-img" src="../../../assets/img/thumbnails/yellow.png" alt="">
+            </div>
+        </a>
+    </div>
+    <!-- UPLOAD SECTION -->
+    <!-- <div class="container upload-section">
+        <br>
+        <p class="text-bold text-regular no-margin">Add new item to Kandy Shops</p>
+        <p class="no-margin">Where collaborations and rewards</p>
+        <p class="no-margin">happens after the sale</p>
+        <br>
+        <div class="upload-container">
+            <div class="text-center text-mute">
+                <i class="fa fa-image"></i>
+                <p>Add the new item image</p>
+            </div>
+        </div>
+    </div> -->
+    <!-- SHOPS CAROUSEL -->
+    <div class="container">
+        <app-shop-carousel></app-shop-carousel>
+    </div>    
+    <!-- ITEM LIBRARY -->
+    <div class="bg-white">
+        <div class="container">
+            <p class="text-regular text-left">Kind Items</p>
+            <app-kind-carousel></app-kind-carousel>
+        </div>
+        <div class="items-grid">
+            <div class="item" *ngFor="let product of products">
+                <app-showcase-item [product]="product"></app-showcase-item>
+            </div>
+        </div>
+    </div>
+</ons-page>

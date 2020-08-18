@@ -1,0 +1,65 @@
+@import "../../../assets/scss/main.scss";
+
+.nav {
+    background-color: $yellow !important;
+    i {
+        color: #506167;
+    }
+    .back svg {
+        fill: $darkGrey !important;
+    }
+}
+.product-header {
+    background-color: $bodyColor;
+    img {
+        width: 200px !important;
+        @include mediaMd {
+            width: 300px !important;
+        }
+    }
+    .product-name,
+    .product-price {
+        font-size: 20px;
+    }
+    @include mediaMd {
+        .product-name,
+        .product-price {
+            font-size: 24px;
+        }
+    }
+}
+.product-specifications {
+    background-color: $lightGrey;
+    .specifications-grid {
+        display: grid;
+        grid-template-columns: repeat(3, calc(100% / 3)) !important;                
+    }
+    .extras-grid {
+        display: grid;
+        grid-template-columns: repeat(2, calc(100% / 2)) !important;
+    }
+    .customizations-grid {
+        display: grid;
+        grid-template-columns: repeat(1, calc(100% / 1)) !important;
+    }
+    .grid-item{
+        border-right: 3px $lightGrey solid;
+        border-bottom: 3px $lightGrey solid;
+        padding: 2rem 0;
+    }
+    @include mediaMd {
+        .specificacion-header {
+            font-size: 20px;
+        }        
+    }
+}
+.product-description {
+    background-color: $bodyColor;
+    .add-to-cart {
+        padding: 15px;
+        background-color: $yellow;
+        color: $darkGrey;
+        border: 0;
+        border-radius: 10px;
+    }
+}

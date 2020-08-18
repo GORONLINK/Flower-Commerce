@@ -1,0 +1,77 @@
+<ons-page>
+    <!-- NAVIGATION -->
+    <ons-toolbar class="nav">
+        <div class="left"><ons-back-button class="back text-regular text-bold" (click)="backToShowCase()">Item / {{ product.name }}</ons-back-button></div>
+        <div class="right">
+            <div class="flex float-right" style="margin-top: 1rem;">
+                <i class="fa fa-bookmark-o" style="margin-right: 1rem;"></i>
+                <i class="fa fa-external-link" style="margin-right: 1rem;"></i>
+            </div>            
+        </div>
+    </ons-toolbar>
+    <!-- PRODUCT HEADER -->
+    <div class="product-header">
+        <div class="text-center container">
+            <img class="flex-img rounded" src="{{ product.image }}" alt="">
+        </div>
+        <div class="container">
+            <div class="float-left">
+                <p class="no-margin text-bold text-regular product-name">{{ product.name }}</p>                            
+            </div>
+            <div class="float-right">
+                <div class="flex">
+                    <p class="no-margin text-mute text-crossed product-price" style="padding-right: 1rem;">${{ product.price }}</p>
+                    <p class="no-margin text-regular product-price">${{ product.discount }}</p>
+                </div>
+            </div>
+            <br><br><br>
+            <p class="no-margin text-bold text-regular">After the sale:</p>
+            <p class="no-margin">- Buy and win 7% as reward</p>
+            <p class="no-margin">- Share it to earn 17%</p>
+        </div>
+    </div>
+    <!-- PRODUCT SPECIFICATIONS -->
+    <div class="product-specifications container">
+        <div class="bg-white">
+            <div class="specifications-grid">
+                <div class="grid-item">
+                    <p class="no-margin text-center text-bold text-black specificacion-header">Sizes</p>
+                    <p class="text-center">{{ product.size }}</p>
+                </div>
+                <div class="grid-item">
+                    <p class="no-margin text-center text-bold text-black specificacion-header">Sides</p>
+                    <p class="text-center">{{ product.sides }}</p>
+                </div>
+                <div class="grid-item">
+                    <p class="no-margin text-center text-bold text-black specificacion-header">Quantity</p>
+                    <p class="text-center">{{ product.quantity }}</p>
+                </div>
+            </div>
+            <div class="extras-grid">
+                <div class="grid-item">
+                    <p class="no-margin text-center text-bold text-black specificacion-header">+ Extra XYZ</p>
+                </div>
+                <div class="grid-item">
+                    <p class="no-margin text-center text-bold text-black specificacion-header">+ Extra XYZ</p>
+                </div>
+            </div>
+            <div class="customizations-grid">
+                <div class="grid-item">
+                    <p class="no-margin text-center text-bold text-black specificacion-header">Customize</p>
+                </div>
+            </div>
+        </div>        
+    </div>
+    <!-- PRODUCT DESCRIPTION -->
+    <div class="product-description container">
+        <h4 class="text-left text-regular text-bold">About this</h4>
+        <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+        Dolor voluptatibus odit odio voluptate officia, ex necessitatibus hic ipsum eligendi iste!
+        Inventore labore quisquam consectetur neque esse quis eveniet nisi. Ex.
+        </p>
+        <div>
+            <button class="add-to-cart float-right">Add to basket ${{ product.discount }}</button>
+        </div>
+        <br><br><br>
+    </div>
+</ons-page>

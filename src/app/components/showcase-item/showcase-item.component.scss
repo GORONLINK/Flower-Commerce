@@ -1,0 +1,25 @@
+@import "../../../assets/scss/main.scss";
+
+.item {
+    @include mediaMd {
+        i {
+            font-size: 30px;
+        }
+        p {
+            font-size: 18px;
+        }
+    }
+    .item-image {
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+        @include mediaMd {
+            width: 150px;
+            height: 150px;
+        }
+        @include mediaLg {
+            width: 180px;
+            height: 180px;
+        }
+    }
+}

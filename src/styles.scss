@@ -1,0 +1,33 @@
+@import '../node_modules/onsenui/css/onsenui.css';
+@import '../node_modules/onsenui/css/onsen-css-components.css';
+
+* {
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #f4f4f4;
+}
+@font-face {
+    font-family: 'Avenir';
+    src: url('./assets/fonts/AvenirLTStd-Medium.otf');
+    src: local('AvenirLTStd'), url('./assets/fonts/AvenirLTStd-Medium.otf') format('OpenType');
+}
+h1,h2,h3,h4,h5,h6 {    
+    font-family: 'Avenir' !important;
+}
+a {    
+    text-decoration: none;
+    transition: all ease-out 300ms;
+}
+p, a, input {
+    font-family: 'Avenir' !important;
+}
+input, select, textarea {    
+    font-size: 16px !important;
+}
+button {
+    outline: none !important;
+}
