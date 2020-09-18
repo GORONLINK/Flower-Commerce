@@ -1,27 +1,29 @@
 <ons-page>
     <!-- NAVIGATION -->
     <ons-toolbar class="nav">
-        <div class="left"><ons-back-button class="back text-regular text-bold" (click)="backToShowCase()">Item / {{ product.name }}</ons-back-button></div>
+        <div class="left"><ons-back-button class="back text-regular text-bold" (click)="backToShowCase()">Item / {{ product == null ? '' : product.name }}</ons-back-button></div>
         <div class="right">
-            <div class="flex float-right" style="margin-top: 1rem;">
-                <i class="fa fa-bookmark-o" style="margin-right: 1rem;"></i>
-                <i class="fa fa-external-link" style="margin-right: 1rem;"></i>
-            </div>            
+            <div class="flex float-right" style="align-items: center;">
+                <div>
+                    <i class="fa fa-bookmark-o" style="margin-right: 1rem;"></i>
+                    <i class="fa fa-external-link" style="margin-right: 1rem;"></i>
+                </div>                
+            </div>
         </div>
     </ons-toolbar>
     <!-- PRODUCT HEADER -->
     <div class="product-header">
         <div class="text-center container">
-            <img class="flex-img rounded" src="{{ product.image }}" alt="">
+            <img class="flex-img rounded" src="{{ URI }}/media/{{ product == null ? '' : product.media }}" alt="">
         </div>
         <div class="container">
             <div class="float-left">
-                <p class="no-margin text-bold text-regular product-name">{{ product.name }}</p>                            
+                <p class="no-margin text-bold text-regular product-name">{{ product == null ? '' : product.name }}</p>
             </div>
             <div class="float-right">
                 <div class="flex">
-                    <p class="no-margin text-mute text-crossed product-price" style="padding-right: 1rem;">${{ product.price }}</p>
-                    <p class="no-margin text-regular product-price">${{ product.discount }}</p>
+                    <p class="no-margin text-mute text-crossed product-price" style="padding-right: 1rem;">{{ product != null && product.discount ? '$'+product.price : '' }}</p>
+                    <p class="no-margin text-regular product-price">${{ product == null ? '' : product.price - ((product.price * product.discount)/100) }}</p>
                 </div>
             </div>
             <br><br><br>
@@ -36,42 +38,74 @@
             <div class="specifications-grid">
                 <div class="grid-item">
                     <p class="no-margin text-center text-bold text-black specificacion-header">Sizes</p>
-                    <p class="text-center">{{ product.size }}</p>
+                    <p class="text-center">{{ product == null ? '' : product.sizes }}</p>
                 </div>
                 <div class="grid-item">
                     <p class="no-margin text-center text-bold text-black specificacion-header">Sides</p>
-                    <p class="text-center">{{ product.sides }}</p>
+                    <p class="text-center">{{ product == null ? '' : product.sides }}</p>
                 </div>
                 <div class="grid-item">
                     <p class="no-margin text-center text-bold text-black specificacion-header">Quantity</p>
-                    <p class="text-center">{{ product.quantity }}</p>
+                    <p class="text-center">{{ product == null ? '' : product.quantity }}</p>
                 </div>
             </div>
             <div class="extras-grid">
                 <div class="grid-item">
                     <p class="no-margin text-center text-bold text-black specificacion-header">+ Extra XYZ</p>
-                </div>
-                <div class="grid-item">
-                    <p class="no-margin text-center text-bold text-black specificacion-header">+ Extra XYZ</p>
-                </div>
+                    <p class="text-center">{{ product == null ? '' : product.extras }}</p>
+                </div>                
             </div>
-            <div class="customizations-grid">
+            <!-- <div class="customizations-grid">
                 <div class="grid-item">
                     <p class="no-margin text-center text-bold text-black specificacion-header">Customize</p>
                 </div>
-            </div>
-        </div>        
+            </div> -->
+        </div>
     </div>
     <!-- PRODUCT DESCRIPTION -->
     <div class="product-description container">
         <h4 class="text-left text-regular text-bold">About this</h4>
-        <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-        Dolor voluptatibus odit odio voluptate officia, ex necessitatibus hic ipsum eligendi iste!
-        Inventore labore quisquam consectetur neque esse quis eveniet nisi. Ex.
-        </p>
+        <p class="text-justify">{{ product == null ? '' : product.description }}</p>
         <div>
-            <button class="add-to-cart float-right">Add to basket ${{ product.discount }}</button>
+            <button class="add-to-cart text-bold float-right" (click)="openBasketOptions(product)">Add to basket ${{ product == null ? '' : product.price - ((product.price * product.discount)/100) }}</button>
         </div>
         <br><br><br>
     </div>
 </ons-page>
+
+<!-- Modal to Basket options  -->
+<div class="modal-basket">
+    <ons-modal #modalBasket animation="lift" style="height: 100vh;">
+        <div style="width: 100%; height: 60%;" (click)="closeBasketOptions()"></div>
+        <div class="container bg-white">
+            <h3 class="text-regular text-center">Which basket is more convenient?</h3>
+            <div class="grid-basket text-center no-margin">
+                <div class="grid-item text-center">
+                    <a routerLink="/basket/pickup">
+                        <div class="item-icon rounded no-margin"></div>
+                    </a>
+                    <br>
+                    <p class="no-margin text-regular">Curbside Pick-Up</p>
+                </div>
+                <div class="grid-item text-center">
+                    <div class="item-icon rounded no-margin"></div>
+                    <br>
+                    <p class="no-margin text-regular">Delivery / Shipped</p>
+                </div>
+                <div class="grid-item text-center">
+                    <a routerLink="/basket/table">
+                        <div class="item-icon rounded no-margin"></div>
+                    </a>                    
+                    <br>
+                    <p class="no-margin text-regular">Order from My Table</p>
+                </div>
+                <div class="grid-item text-center">
+                    <div class="item-icon rounded no-margin"></div>
+                    <br>
+                    <p class="no-margin text-regular">Delivery before 6 am</p>
+                </div>
+            </div>
+            <br><br>
+        </div>
+    </ons-modal>
+</div>

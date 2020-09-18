@@ -8,7 +8,7 @@
             </div>        
         </div>
         <div class="float-right">
-            <button class="sign-in text-bold">Sign in</button>
+            <button class="sign-in text-bold" (click)="openModal()">Sign in</button>
         </div>
         <br><br>        
         <h1 class="text-center text-bold text-regular">For a better kind of world</h1>
@@ -333,3 +333,20 @@
         <br><br>
     </div>
 </ons-page>
+
+<div class="modal-pro">
+    <ons-modal #modalAuth animation="lift" style="height: 100vh;">
+        <div style="width: 100%; height: 45%;" (click)="hideModal()"></div>
+        <div class="container bg-white text-center" style="height: 55%;">
+            <h4 class="text-bold text-regular">Add your mobile <span>to join the Kanddy program</span></h4>
+            <form [formGroup]="phoneForm">
+                <input type="text" formControlName="phone" class="input-form" placeholder="We don't like spam">
+                <br><br>
+                <button class="submit-button" [ngClass]="{'button-disabled': phoneForm.invalid || phoneSubmitted}" [disabled]="phoneForm.invalid || phoneSubmitted" (click)="submitPhone()">Continue</button>
+                <br>
+                <small class="text-regular">If you are not registered, a one time code will be sent to validate you have good intentions</small>
+            </form>
+            <br><br>
+        </div>
+    </ons-modal>
+</div>

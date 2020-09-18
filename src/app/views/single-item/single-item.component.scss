@@ -13,8 +13,10 @@
     background-color: $bodyColor;
     img {
         width: 200px !important;
+        height: 200px !important;
         @include mediaMd {
             width: 300px !important;
+            height: 300px !important;
         }
     }
     .product-name,
@@ -32,11 +34,11 @@
     background-color: $lightGrey;
     .specifications-grid {
         display: grid;
-        grid-template-columns: repeat(3, calc(100% / 3)) !important;                
+        grid-template-columns: repeat(3, calc(100% / 3)) !important;
     }
     .extras-grid {
         display: grid;
-        grid-template-columns: repeat(2, calc(100% / 2)) !important;
+        grid-template-columns: repeat(2, calc(100% / 1)) !important;
     }
     .customizations-grid {
         display: grid;
@@ -55,11 +57,27 @@
 }
 .product-description {
     background-color: $bodyColor;
-    .add-to-cart {
+    .add-to-cart {        
         padding: 15px;
         background-color: $yellow;
         color: $darkGrey;
         border: 0;
         border-radius: 10px;
+    }
+}
+.modal-basket {
+    .grid-basket {
+        display: grid;
+        grid-template-columns: repeat(4, calc(100% / 4)) !important;
+        .grid-item {
+            .item-icon {
+                cursor: pointer;
+                width: 70px;
+                height: 70px;
+                border: 2px $yellow solid;
+                background-color: $white;
+                padding: 15px;
+            }
+        }
     }
 }

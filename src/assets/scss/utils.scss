@@ -1,6 +1,15 @@
 @import "./variables.scss";
 @import "./media.scss";
 
+.text-uppercase {
+    text-transform: uppercase !important;
+}
+.text-lowercase {
+    text-transform: lowercase !important;
+}
+.text-capitalize {
+    text-transform: capitalize !important;
+}
 .text-center {
     text-align: center !important;
 }
@@ -30,6 +39,9 @@
     @include mediaMd {
         padding: 3rem 5rem;   
     }
+}
+.ml-auto {
+    margin-left: auto !important;
 }
 .no-margin {
     margin: 0 auto !important;
@@ -87,10 +99,49 @@
 }
 .flex {
     display: flex;
+    display: -webkit-flex;
 }
 .flex-img {
     width: 100% !important;
     height: auto;
+}
+.center-flex {
+    justify-content: center;
+    align-items: center;
+}
+.transparent-button {
+    background-color: transparent;    
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    border: 2px $darkGrey solid;
+    color: $darkGrey;
+    font-size: 16px;
+}
+.input-form {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    border-radius: 10px;
+    border: 2px $lightGrey solid;
+    @include mediaMd {
+        width: 50% !important;
+    }
+}
+.submit-button {
+    background-color: $yellow;
+    color: $darkGrey;
+    padding: 1rem 4rem;
+    border-radius: 30px;
+    border: 1px $darkGrey solid;
+    font-size: 16px;
+    @include mediaMd {
+        width: 30% !important;
+    }
+}
+.button-disabled {
+    cursor: auto !important;
+    background-color: $lightYellow !important;
+    color: $lightGrey !important;
+    border: 0 !important;
 }
 
 @mixin grid($cells) {

@@ -1,0 +1,32 @@
+<ons-page>
+    <div class="container bg-white" style="height: 100%;">
+        <div class="back-to-home">
+            <a routerLink="/">
+                <span>X</span>
+            </a>
+        </div>
+        <br><br><br>
+        <div class="text-center">
+            <img src="../../../assets/img/thumbnails/yellow.png" alt="" class="rounded">
+            <h3 class="text-bold no-margin title">Kanddy.io</h3>
+        </div>
+        <br><br><br>
+        <form [formGroup]="codeForm" class="form text-center" *ngIf="!userExists">
+            <h3 class="text-regular text-bold">Add the code you received</h3>
+            <input type="text" formControlName="code" class="input-form" placeholder="We don't like spam">
+            <br><br><br>
+            <div class="text-center">
+                <button class="submit-button" [ngClass]="{'button-disabled': codeForm.invalid || inputSubmitted}" [disabled]="codeForm.invalid || inputSubmitted" (click)="onSubmitCode()">Continue</button>
+            </div>
+        </form>
+        <form [formGroup]="passwordForm" class="form text-center" *ngIf="userExists">
+            <h3 class="text-regular text-bold">Add your password to login</h3>
+            <input type="password" formControlName="password" class="input-form" placeholder="Password">
+            <br><br><br>
+            <div class="text-center">
+                <button class="submit-button" [ngClass]="{'button-disabled': passwordForm.invalid || inputSubmitted}" [disabled]="passwordForm.invalid || inputSubmitted" (click)="onSubmitPassword()">Continue</button>
+            </div>
+        </form>
+        
+    </div>
+</ons-page>

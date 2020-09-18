@@ -1,0 +1,26 @@
+@import "../../../assets/scss/main.scss";
+
+img {
+    width: 70px;
+    height: 70px;
+}
+.back-to-home {
+    background: $darkGrey;
+    border-radius: 50%;
+    padding: 0.7rem;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.back-to-home span {
+    color: $yellow;
+    font-size: 0.7em;
+}
+.title {
+    color: $titleYellow;
+}
+.form {
+    padding: 1rem;
+}

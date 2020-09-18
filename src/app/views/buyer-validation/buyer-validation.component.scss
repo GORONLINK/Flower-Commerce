@@ -1,0 +1,53 @@
+@import "../../../assets/scss/main.scss";
+
+.nav {
+    background-color: $yellow !important;
+    i {
+        color: #506167;
+    }
+    .back svg {
+        fill: $darkGrey !important;
+    }
+}
+
+.input-form {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    border-radius: 10px;
+    border: 2px $lightGrey solid;
+}
+
+.modal-table {
+    .table-grid {
+        display: grid;
+        grid-template-columns: repeat(4, calc(100% / 4)) !important;
+        .table-item {
+            margin: 0 auto;
+            width: 70px;
+            padding-top: 1rem;            
+            p.rounded-shop-item {
+                font-size: 35px;
+                height: 70px;
+            }
+            .img-item {
+                width: 70px;
+                height: 70px;
+            }
+            .rounded-shop-item {
+                width: 100%;
+                text-align: center;
+                border-radius: 50%;
+                border: 3px $lightGrey solid;
+                background-color: $white;
+                padding: 15px;
+                cursor: pointer;
+            }    
+        }
+        .table-item.active {
+            p {
+                border: 3px $yellow solid;
+                padding-top: 12px;
+            }
+        }
+    }    
+}

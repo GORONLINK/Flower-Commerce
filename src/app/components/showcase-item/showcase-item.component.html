@@ -1,29 +1,31 @@
-<br>
-<div class="item">
-    <div class="float-left" style="margin-left: 1rem;">
-        <p class="no-margin text-regular text-bold">{{ product.vendor }}</p>
-    </div>
-    <div class="float-right" style="margin-right: 1rem;">
-        <div class="flex">
-            <i class="fa fa-bookmark-o text-regular" style="margin-right: 1rem;"></i>
-            <i class="fa fa-external-link text-regular"></i>
-        </div>
-    </div>
+<ng-container *ngIf="product">
     <br>
-    <div class="container">
-        <div class="text-center">
-            <a [routerLink]="['/item', product._id]">
-                <img class="rounded item-image" src="{{ product.image }}" alt="{{ product.name }}">
-            </a>
+    <div class="item">
+        <div class="float-left" style="margin-left: 1rem;">
+            <p class="no-margin text-regular text-bold">Bee</p>
         </div>
-        <p class="text-center text-bold text-regular">{{ product.name }}</p>
-        <div class="flex">
-            <p class="text-crossed no-margin text-mute">${{ product.price }}</p>
-            <p class="text-regular no-margin">${{ product.discount }}</p>
+        <div class="float-right" style="margin-right: 1rem;">
+            <div class="flex">
+                <i class="fa fa-bookmark-o text-regular" style="margin-right: 1rem;"></i>
+                <i class="fa fa-external-link text-regular"></i>
+            </div>
         </div>
         <br>
-        <p class="no-margin text-regular text-bold">After the sale</p>
-        <p class="no-margin">- Buyers win 7% as reward</p>
-        <p class="no-margin">- Promotor earns 17%</p>
+        <div class="container">
+            <div class="text-center">
+                <a [routerLink]="['/item', product._id]">
+                    <img class="rounded item-image" src="{{ URI }}/media/{{ product == null ? '' : product.media }}" alt="{{ product.name }}">
+                </a>
+            </div>
+            <p class="text-center text-bold text-regular">{{ product.name }}</p>
+            <div class="flex">
+                <p class="text-crossed no-margin text-mute">${{ product.price }}</p>
+                <p class="text-regular no-margin">${{ product == null ? '' : product.price - ((product.price * product.discount)/100) }}</p>
+            </div>
+            <br>
+            <p class="no-margin text-regular text-bold">After the sale</p>
+            <p class="no-margin">- Buyers win 7% as reward</p>
+            <p class="no-margin">- Promotor earns 17%</p>
+        </div>
     </div>
-</div>
+</ng-container>

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../../models/product.model';
- 
+import { environment } from '../../../environments/environment';
+
 @Component({
   selector: 'app-showcase-item',
   templateUrl: './showcase-item.component.html',
@@ -9,6 +10,8 @@ import { Product } from '../../models/product.model';
 export class ShowcaseItemComponent implements OnInit {
 
   @Input() product: Product;
+
+  private URI = environment.formerApi;
 
   constructor() { }
 

@@ -1,4 +1,5 @@
 <ons-page>
+    <input type="file" style="display: none;" #inputPro>
     <!-- NAVBAR -->
     <div class="navbar">
         <a class="nav-item text-center">
@@ -16,28 +17,39 @@
         </a>
     </div>
     <!-- UPLOAD SECTION -->
-    <!-- <div class="container upload-section">
+    <div class="container upload-section">
         <br>
         <p class="text-bold text-regular no-margin">Add new item to Kandy Shops</p>
         <p class="no-margin">Where collaborations and rewards</p>
         <p class="no-margin">happens after the sale</p>
         <br>
-        <div class="upload-container">
+        <div class="upload-container shadow" (click)="imageInput.click()">
             <div class="text-center text-mute">
                 <i class="fa fa-image"></i>
                 <p>Add the new item image</p>
+                <input #imageInput type="file" accept="image/*" (change)="processFile(imageInput)" style="display: none;">
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- SHOPS CAROUSEL -->
-    <div class="container">
+    <!-- <div class="container">
         <app-shop-carousel></app-shop-carousel>
-    </div>    
+    </div> -->
     <!-- ITEM LIBRARY -->
     <div class="bg-white">
         <div class="container">
-            <p class="text-regular text-left">Kind Items</p>
-            <app-kind-carousel></app-kind-carousel>
+            <p class="text-regular text-left" (click)="push()">Kind Items</p>
+            <ons-carousel #myCarousel swipeable overscrollable animation-options="{duration: 0.2}" item-width="70px">
+                <ons-carousel-item id="slide-1" style="margin-right: 1rem;">
+                    <div class="carousel-item full-width" (click)="getAllProducts()">
+                        <i [class]="toggleClass"></i>
+                        <p class="text-regular text-center">All</p>
+                    </div>
+                </ons-carousel-item>
+                <ons-carousel-item id="slide-1" style="margin-right: 1rem; width: 70px;" *ngFor="let category of categories">
+                    <app-kind-carousel [category]="category" (categoryId)="sortCategoryHandler($event)"></app-kind-carousel>
+                </ons-carousel-item>
+            </ons-carousel>
         </div>
         <div class="items-grid">
             <div class="item" *ngFor="let product of products">

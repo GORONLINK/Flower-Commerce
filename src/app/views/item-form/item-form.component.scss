@@ -1,0 +1,121 @@
+@import "../../../assets/scss/main.scss";
+
+input,
+textarea {
+    background-color: $lightGrey;
+    border: 0;
+    border-radius: 5px;    
+}
+
+.nav {
+    background-color: $darkGrey !important;
+    .edit-button {
+        background-color: transparent;
+        color: $yellow !important;
+        padding: 5px;
+        width: 5rem;
+        height: 2rem;
+        border-radius: 20px;
+        border: 3px $yellow solid;
+        margin-right: 1.5rem;
+    }
+    p {
+        margin-right: 0.5rem !important;
+    }
+    i, p {
+        font-size: 20px;
+        margin-right: 1rem;
+    }
+    .back svg {
+        fill: $darkGrey !important;
+    }
+}
+.product-header {
+    background-color: $bodyColor;
+    img {
+        width: 200px !important;
+        height: 200px !important;
+        @include mediaMd {
+            width: 300px !important;
+            height: 300px !important;
+        }
+    }
+    .sample-image {
+        width: 150px;
+        height: 150px;
+        background-color: $lightGrey;
+        border: $darkGrey 3px solid;
+    }
+    .grid-info {
+        display: grid;
+        grid-template-columns: repeat(4, calc(100% / 4)) !important;        
+    }
+}
+.product-info {
+    background-color: $lightGrey;
+    .product-inputs {
+        background-color: $bodyColor;
+        margin-top: 0.5rem;
+        input {
+            padding: 5px 10px;
+            width: 100%;        
+        }        
+        textarea {
+            padding: 5px 10px;
+            width: 100%;
+            height: 100px;
+        }
+        .specifications-grid {
+            display: grid;
+            grid-template-columns: repeat(3, calc(100% / 3)) !important;                
+        }
+        .extras-grid {
+            display: grid;
+            grid-template-columns: repeat(1, calc(100% / 1)) !important;
+        }
+        .grid-item{
+            border-right: 4px $bodyColor solid;
+            border-bottom: 4px $bodyColor solid;
+            padding: 2rem 0;
+        }
+        .sell-section-grid {
+            margin-top: 3rem;
+        }        
+        .carousel-item {
+            i.rounded-shop-item {
+                font-size: 35px;
+            }
+            i.rounded-item {
+                font-size: 40px;
+            }
+            .img-item {
+                width: 70px;
+                height: 70px;
+            }
+            .rounded-shop-item {
+                width: 100%;
+                text-align: center;
+                border-radius: 50%;
+                border: 2px $yellow solid;
+                background-color: $white;
+                padding: 15px;
+                cursor: pointer;
+            }
+            .rounded-item {
+                width: 100%;
+                text-align: center;
+                border-radius: 50%;
+                padding: 15px;
+                background-color: $lightGrey;
+                cursor: pointer;
+            }
+        }
+        .carousel-item.active {
+            i {
+                border: 3px $darkGrey solid;
+                height: 70px;
+                padding-top: 12px;
+            }
+        }
+    }
+}

@@ -1,0 +1,55 @@
+<ons-page>
+    <!-- NAVIGATION -->
+    <ons-toolbar class="nav">
+        <div class="left"><ons-back-button class="back text-regular text-bold">Item</ons-back-button></div>
+        <div class="right">
+            <div class="flex float-right" style="align-items: center;">
+                <div>
+                    <i class="fa fa-bookmark-o" style="margin-right: 1rem;"></i>
+                    <i class="fa fa-external-link" style="margin-right: 1rem;"></i>
+                </div>
+            </div>
+        </div>
+    </ons-toolbar>
+    <div class="container order-container">
+        <div class="text-center">
+            <div class="rounded no-margin bg-white" style="width: 100px; height: 100px; border: 1px grey solid;"></div>
+            <h4 class="text-regular text-capitalize">{{ checkoutMode }}</h4>
+        </div>
+    </div>
+    <div class="container bg-white full-width">
+        <h3 class="no-margin text-regular text-left">YOUR ORDER</h3>
+    </div>
+    <div class="container order-container">
+        <div class="basket-item" *ngFor="let item of basket">
+            <div class="flex">
+                <div class="rounded bg-white" style="width: 70px; height: 70px; border: 1px grey solid;"></div>
+                <div class="ml-auto">
+                    <p class="text-regular text-bold text-right">{{ item.product.name }}</p>
+                    <p class="text-regular text-bold"><span class="text-mute">from</span> Bee</p>
+                </div>
+            </div>
+            <hr class="text-mute">
+            <div class="basket-grid">
+                <div class="item-grid text-center">
+                    <p class="text-regular no-margin">Qty: 1</p>
+                </div>
+                <div class="item-grid text-center">
+                    <i class="fa fa-trash"></i>
+                </div>
+                <div class="item-grid text-center">
+                    <div class="flex">
+                        <p class="no-margin text-mute text-crossed product-price" style="padding-right: 0.5rem;">{{ item != null && item.product.discount ? '$'+item.product.price : '' }}</p>
+                        <p class="no-margin text-regular product-price">${{ item == null ? '' : item.product.price - ((item.product.price * item.product.discount)/100) }}</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+        <br><br>
+        <div class="text-center">
+            <button class="submit-button text-bold">Continue ${{ total }}</button>
+            <p class="text-mute">7% Reward ${{ total * 0.07 | number }}</p>
+        </div>
+    </div>
+</ons-page>

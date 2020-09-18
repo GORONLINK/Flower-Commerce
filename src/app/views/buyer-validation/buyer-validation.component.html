@@ -1,0 +1,87 @@
+<ons-page>
+    <!-- NAVIGATION -->
+    <ons-toolbar class="nav">
+        <div class="left"><ons-back-button class="back text-regular text-bold">Item / {{ product == null ? '' : product.name }}</ons-back-button></div>
+        <div class="right">
+            <div class="flex float-right" style="align-items: center;">
+                <div>
+                    <i class="fa fa-bookmark-o" style="margin-right: 1rem;"></i>
+                    <i class="fa fa-external-link" style="margin-right: 1rem;"></i>
+                </div>
+            </div>
+        </div>
+    </ons-toolbar>
+    <div class="container bg-white">    
+        <br>
+        <div class="text-center">
+            <div class="rounded no-margin" style="width: 100px; height: 100px; border: 1px grey solid;"></div>
+            <!-- <img src="" alt=""> -->
+            <h3 class="text-regular">Curbside Pick-Up</h3>
+        </div>
+        <br>
+        <form [formGroup]="phoneForm">
+            <label for="">Add your mobile</label>
+            <br><br>
+            <input type="text" formControlName="phone" class="input-form" placeholder="We don't like spam">
+            <br>
+            <small class="text-regular">You'll receive a one time code to validate if it's your first time</small>
+            <br><br><br>
+            <div class="text-center">
+                <button class="submit-button text-bold" [ngClass]="{'button-disabled': phoneForm.invalid || phoneSubmitted || canShowPasswordField}" [disabled]="phoneForm.invalid || phoneSubmitted" (click)="submitPhone()">Continue</button>
+            </div>
+        </form>
+        <br><br><br><br><br>
+        <form [formGroup]="verificationForm" *ngIf="canShowPasswordField">
+            <label for="">Password</label>
+            <br><br>
+            <input type="text" formControlName="password" class="input-form" placeholder="Password">
+            <br>
+            <small class="text-regular">You'll receive a one time code to validate if it's your first time</small>
+            <br><br><br>
+            <div class="text-center">
+                <button class="submit-button text-bold" [ngClass]="{'button-disabled': verificationForm.invalid || verificationSubmitted}" [disabled]="verificationForm.invalid || verificationSubmitted" (click)="submitVerification()">Continue</button>
+            </div>
+        </form>
+    </div>
+</ons-page>
+
+<!-- MODAL FOR TABLE ORDERS -->
+<div class="modal-table">
+    <ons-modal #modalTableOrder animation="lift" style="height: 100vh;">
+        <div style="width: 100%; height: 20%;"></div>
+        <div class="container bg-white">
+            <div class="text-center">
+                <div class="rounded no-margin" style="width: 100px; height: 100px; border: 1px grey solid;"></div>
+                <h3 class="text-regular">Order from my Table</h3>
+            </div>
+            <br><br>
+            <h3 class="text-regular">Which table are you seated</h3>
+            <div class="table-grid">
+                <div class="table-item" [ngClass]="{'active': selectedTable == table}" (click)="getSelectedTable($event, table)" style="width: 70px;" *ngFor="let table of tables">
+                    <p class="no-margin text-regular rounded-shop-item">{{ table }}</p>
+                </div>
+            </div>
+            <div style="padding: 5rem"></div>
+        </div>
+    </ons-modal>
+</div>
+
+<!-- MODAL FOR CURBSIDE PICK-UP -->
+<div class="modal-pickup">
+    <ons-modal #modalPickUp animation="lift" style="height: 100vh;">
+        <div style="width: 100%; height: 20%;" (click)="closeModal(modalBasket)"></div>
+        <div class="container bg-white" style="height: 100vh;">
+            <div class="text-center">
+                <div class="rounded no-margin" style="width: 100px; height: 100px; border: 1px grey solid;"></div>
+                <h3 class="text-regular text-bold">Curbside Pick-Up</h3>
+                <br><br>
+                <p class="text-regular">Allow permission to follow your location until the pick up?</p>
+                <br>
+                <div class="flex center-flex">
+                    <p class="text-regular text-bold" style="margin-right: 2rem;">No</p>
+                    <button class="transparent-button text-bold" (click)="redirectToCheckout('pickup')">Yes</button>
+                </div>
+            </div>
+        </div>
+    </ons-modal>
+</div>

@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment';
 export class ProductsService {
 
   public products: Product|Product[];
-  private URI = environment.apiBase;
+  private URI = environment.formerApi;
   private cancelRequest = null;
 
   constructor() { }
@@ -68,7 +68,7 @@ export class ProductsService {
   // Posts a new product
   // @param Product
   // @return Product
-  async createProduct(product: Product, token: string) {
+  async createProduct(product: any) {
     try {
       const aux = await axios({
         method: "POST",
@@ -76,7 +76,7 @@ export class ProductsService {
         data: product,
         headers: {
           "Content-Type": "application/json",
-          Authorization: token
+          Authorization: "5f4643ce8b67fb6cdc3a6e5b"
         },
         cancelToken: new axios.CancelToken(c => {
           this.cancelRequest = c;
